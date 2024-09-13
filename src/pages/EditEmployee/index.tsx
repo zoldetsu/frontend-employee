@@ -1,14 +1,12 @@
 import axios from "../../axios";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { fetchRegister, selectIsAuth } from "../../redux/slices/Auth";
+
+import { selectIsAuth } from "../../redux/slices/Auth";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../redux/store";
-import { fetchAddEmployee } from "../../redux/slices/Employees";
+
 import { useEffect, useState } from "react";
 
 export default function EditEmployee() {
-  const dispatch = useAppDispatch();
   const isAuth = useSelector(selectIsAuth);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -17,12 +15,7 @@ export default function EditEmployee() {
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [age, setAge] = useState("");
-  type Inputs = {
-    firstName: string;
-    lastName: string;
-    address: string;
-    age: string;
-  };
+
   useEffect(() => {
     axios
       .get(`/api/employees/${id}`)
@@ -54,7 +47,7 @@ export default function EditEmployee() {
       axios
         .put(`/api/employees/edit/${id}`, fields)
 
-        .then((response) => {
+        .then(() => {
           navigate(`/employees/${id}`);
         })
         .catch((err) => {

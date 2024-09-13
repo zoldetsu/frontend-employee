@@ -58,7 +58,7 @@ const authSlice = createSlice({
       state.status = "loaded";
     });
 
-    builder.addCase(fetchAuth.rejected, (state, payload) => {
+    builder.addCase(fetchAuth.rejected, (state) => {
       state.data = null;
       state.status = "error";
     });
@@ -72,7 +72,7 @@ const authSlice = createSlice({
       state.status = "loaded";
     });
 
-    builder.addCase(fetchRegister.rejected, (state, payload) => {
+    builder.addCase(fetchRegister.rejected, (state) => {
       state.data = null;
       state.status = "error";
     });
@@ -86,14 +86,14 @@ const authSlice = createSlice({
       state.status = "loaded";
     });
 
-    builder.addCase(fetchAuthMe.rejected, (state, payload) => {
+    builder.addCase(fetchAuthMe.rejected, (state) => {
       state.data = null;
       state.status = "error";
     });
   },
 });
 
-export const selectIsAuth = (state: { auth: { data: any } }) =>
+export const selectIsAuth = (state: { auth: { data: IRegisterParams } }) =>
   Boolean(state.auth.data);
 
 export const { logout } = authSlice.actions;

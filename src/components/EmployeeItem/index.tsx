@@ -1,7 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-export default function EmployeeItem({ person }) {
+export interface IPerson {
+  id: string;
+  firstName: string;
+  lastName: string;
+  age: string;
+  address: string;
+}
+
+interface EmployeeItemProps {
+  person: IPerson; // Ожидаем один объект IPerson
+}
+
+export default function EmployeeItem({ person }: EmployeeItemProps) {
   return (
     <Link to={`/employees/${person.id}`}>
       <div>
@@ -24,7 +35,7 @@ export default function EmployeeItem({ person }) {
           </div>
           <div className=" w-full">
             <div className="flex items-center">
-              <div className=" w-6 h-px rotate-90 mr-3 bg-white/20 "></div>
+              <div className=" w-6 h-px rotate-90  bg-white/20 "></div>
               <h3 className="text-white font-medium">{person.address}</h3>
             </div>
           </div>

@@ -1,15 +1,17 @@
 import { useSelector } from "react-redux";
-import EmployeeItem from "../../components/EmployeeItem";
+import EmployeeItem, { IPerson } from "../../components/EmployeeItem";
 import HomeTable from "../../components/HomeTable";
 import { Link, Navigate } from "react-router-dom";
 import { selectIsAuth } from "../../redux/slices/Auth";
-import { useAppDispatch } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { useEffect } from "react";
 import { fetchGetAll } from "../../redux/slices/Employees";
+
 export default function Home() {
   const isAuth = useSelector(selectIsAuth);
   const dispatch = useAppDispatch();
-  const { data } = useSelector((state) => state.employee.allEmployees);
+  // const data = useSelector((state: IState) => state.employee.allEmployees);
+  const { data } = useAppSelector((state) => state.employee.allEmployees);
   useEffect(() => {
     dispatch(fetchGetAll());
   }, []);
