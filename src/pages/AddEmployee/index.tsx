@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { fetchRegister, selectIsAuth } from "../../redux/slices/Auth";
+import { selectIsAuth } from "../../redux/slices/Auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";

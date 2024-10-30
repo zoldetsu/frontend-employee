@@ -19,7 +19,7 @@ export default function Header() {
           className="text-white font-mono text-2xl"
           to={isAuth ? "/home" : "/login"}
         >
-          ZOLO
+          Журнал сотрудников
         </Link>
         {isAuth ? (
           <ul className="flex gap-10">

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import EmployeeItem, { IPerson } from "../../components/EmployeeItem";
+import EmployeeItem from "../../components/EmployeeItem";
 import HomeTable from "../../components/HomeTable";
 import { Link, Navigate } from "react-router-dom";
 import { selectIsAuth } from "../../redux/slices/Auth";

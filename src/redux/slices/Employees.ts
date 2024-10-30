@@ -44,7 +44,7 @@ const EmployeeSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAddEmployee.pending, (state, action) => {
+    builder.addCase(fetchAddEmployee.pending, (state) => {
       state.oneEmployee.status = "loading";
       state.oneEmployee.data = null;
     });
@@ -54,7 +54,7 @@ const EmployeeSlice = createSlice({
       state.oneEmployee.status = "loading";
     });
 
-    builder.addCase(fetchAddEmployee.rejected, (state, payload) => {
+    builder.addCase(fetchAddEmployee.rejected, (state ) => {
       state.oneEmployee.data = null;
       state.oneEmployee.status = "error";
     });
